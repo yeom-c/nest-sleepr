@@ -22,7 +22,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
     ConfigModule.forRoot({
       isGlobal: true,
       validationSchema: Joi.object({
-        PORT: Joi.number().required(),
+        HTTP_PORT: Joi.number().required(),
         MONGODB_URI: Joi.string().required(),
         AUTH_HOST: Joi.string().required(),
         AUTH_PORT: Joi.number().required(),
