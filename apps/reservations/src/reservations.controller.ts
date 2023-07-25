@@ -30,26 +30,30 @@ export class ReservationsController {
     return _user;
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get()
-  findAll() {
-    return this.reservationsService.findAll();
+  async findAll() {
+    return await this.reservationsService.findAll();
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.reservationsService.findOne(id);
+  async findOne(@Param('id') id: string) {
+    return await this.reservationsService.findOne(id);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Patch(':id')
-  update(
+  async update(
     @Param('id') id: string,
     @Body() updateReservationDto: UpdateReservationDto,
   ) {
-    return this.reservationsService.update(id, updateReservationDto);
+    return await this.reservationsService.update(id, updateReservationDto);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.reservationsService.remove(id);
+  async remove(@Param('id') id: string) {
+    return await this.reservationsService.remove(id);
   }
 }
