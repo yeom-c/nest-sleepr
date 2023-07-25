@@ -34,7 +34,10 @@ export class PaymentsService {
       currency: 'usd',
     });
 
-    await this.notificationsService.emit('notify_email', { email });
+    await this.notificationsService.emit('notify_email', {
+      email,
+      text: `결제 완료: $${amount}`,
+    });
 
     return paymentIntent;
   }
